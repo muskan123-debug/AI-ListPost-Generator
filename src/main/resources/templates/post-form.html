@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>LinkedIn Post Generator</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 20px;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+        .container {
+            max-width: 600px;
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+        input, textarea, button {
+            width: 100%;
+            padding: 10px;
+            margin-top: 10px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            font-size: 16px;
+        }
+        button {
+            background-color: #0073b1;
+            color: white;
+            font-weight: bold;
+            border: none;
+            cursor: pointer;
+        }
+        button:hover {
+            background-color: #005f8d;
+        }
+        textarea {
+            height: 150px;
+            resize: none;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>LinkedIn Post Generator</h2>
+
+    <!-- Input Form -->
+    <form action="/posts/generate" method="post">
+        <label>Enter Topic:</label>
+        <input type="text" name="topic" required placeholder="Enter a topic (e.g., Spring Boot Best Practices)">
+        <button type="submit">Generate Post</button>
+    </form>
+
+    <!-- Display Generated Post -->
+    <div th:if="${generatedPost}">
+        <h3>Generated Post</h3>
+        <textarea id="postContent" th:text="${generatedPost.content}"></textarea>
+        <button onclick="copyToClipboard()">Copy to Clipboard</button>
+    </div>
+</div>
+
+<script>
+    function copyToClipboard() {
+        var copyText = document.getElementById("postContent");
+        copyText.select();
+        document.execCommand("copy");
+        alert("Copied to clipboard!");
+    }
+</script>
+
+</body>
+</html>
