@@ -19,14 +19,14 @@ Ever struggled with crafting the perfect LinkedIn post? The **LinkedIn Post Gene
 ## 📂 Project Structure
 ```
 📦 linkedin-post-generator
-├── 📂 src/main/java/com/example
+├── 📂 src/main/java/com/linkpost/generator
 │   ├── 📂 controller  # Handles UI requests
 │   ├── 📂 service     # OpenAI API integration
-│   ├── 📂 model       # LinkedInPost entity
-│   ├── 📂 repository  # JPA Repository for MySQL
+│   ├── 📂 entities       # LinkedInPost entities
+│   ├── 📂 repositories  # JPA Repository for MySQL
 │   ├── 📂 config      # Application configurations
 ├── 📂 src/main/resources/templates  # Thymeleaf UI files
-├── 📂 src/main/resources/static      # CSS, JS files
+├── 📂 src/main/resources/static      # CSS, JS , image files
 ├── 📜 application.properties         # Database & API configurations
 ├── 📜 pom.xml                        # Dependencies
 ```
